@@ -1,0 +1,2360 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D7B3E33-F971-416D-9A2F-726A1277FC75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLBanHang</RootNamespace>
+    <AssemblyName>QLBanHang.Modules.DanhMuc</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <StartupObject>
+    </StartupObject>
+    <ManifestCertificateThumbprint>7594B1A05527A26AEDD64E6C5781ADB2C2DC26F0</ManifestCertificateThumbprint>
+    <ManifestKeyFile>QLBanHang_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <PublishUrl>D:\Projects\QLBanHang\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\TranAnh\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\TranAnh\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QLBH.Documents\References\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QLBH.Documents\References\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="QLBanHang.Modules.DongBoERP, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QLBH.Documents\References\TranAnh\DongBoERP\QLBanHang.Modules.DongBoERP.dll</HintPath>
+    </Reference>
+    <Reference Include="QLBanHang.Modules.HeThong, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QLBH.Documents\References\TranAnh\HeThong\QLBanHang.Modules.HeThong.dll</HintPath>
+    </Reference>
+    <Reference Include="QLBH.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\QLBH.Documents\References\QLBH.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Properties\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietBangKeThueController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietCachGiaoHangController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietChiPhiController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietDmSegmentBaseController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietHinhThucThanhToanController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietLoaiHoaDonController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietLoaiSanPhamTranAnhController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietLyDoGiaoDichController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietLyDoTraHangController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietNganHangController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietPhuongThucBHController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentChildChungController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentHangController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentLinhVucController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentChildLoaiController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentChildModelController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentChildNganhController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietSegmentChildNhomController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseNhomNguoiDung.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseKhoDieuChuyen.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseTinhThanh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseItemSegment.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseLyDoTraHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseOrderType.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseTaiKhoanQuy.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseNganHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseKho2.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseQuanHuyen.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseChiPhi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBasePhongBan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseSegmentInfo.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseThoiHanTToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseTrungTam.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseKho.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseMaLoi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseLoaiSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Controllers\CTBieuMauThueController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTCachGiaoHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTCauHinhSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTChiPhiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTDoiTuongController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTDonViTinhController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTDuAnController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTHangHoaController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTHinhThucThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTLoaiHoaDonController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTLoaiKhachHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTLoaiSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTLyDoTraHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTMaLoiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTNganHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CtNhanVienController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTChucVuController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CtKhoController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTOrderTypeController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CtPhongBanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTPhuongThucBanHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CTThoiHanThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\CtTrungTamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSBieuMauThueController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSCachGiaoHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSCauHinhSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSChiPhiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSChucVuController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSDoiTuongController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSDonViTinhController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSDuAnController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSHangHoaController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSHinhThucThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSKhoController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSLoaiHoaDonController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSLoaiKhachHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSLoaiSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSLyDoTraHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSMaLoiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSNganHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSNhanVienController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSOrderTypeController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSPhongBanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSPhuongThucBanHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSTrungTamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTBieuMauThueController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTCachGiaoHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTCauHinhSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTChiPhiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTChucVuController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTDoiTuongController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTDonViTinhController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTDuAnController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTHangHoaController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTHinhThucThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTKhoController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTLoaiHoaDonController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTLoaiKhachHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTLoaiSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTLyDoTraHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTMaLoiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTNganHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTNhanVienController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTOrderTypeController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTPhongBanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTPhuongThucBanHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTThoiHanThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\ICTTrungTamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSBieuMauThueController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSCachGiaoHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSCauHinhSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSChiPhiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSChucVuController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSDoiTuongController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSDonViTinhController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSDuAnController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSHangHoaController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSHinhThucThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSKhoController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSLoaiHoaDonController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSLoaiKhachHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSLoaiSanPhamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSLyDoTraHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSMaLoiController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSNganHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSNhanVienController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSOrderTypeController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSPhongBanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSPhuongThucBanHangController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSThoiHanThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\IControllers\IDSTrungTamController.cs" />
+    <Compile Include="Modules\DanhMuc\Controllers\DSThoiHanThanhToanController.cs" />
+    <Compile Include="Modules\DanhMuc\frmLookUp_NhomNguoiDung.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_KhoNhapLai.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_KhoDieuChuyen.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmChiTietPhuongThucBanHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmChiTietPhuongThucBanHang.Designer.cs">
+      <DependentUpon>FrmChiTietPhuongThucBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTBieuMauThue.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTBieuMauThue.Designer.cs">
+      <DependentUpon>FrmCTBieuMauThue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTCachGiaoHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTCachGiaoHang.Designer.cs">
+      <DependentUpon>FrmCTCachGiaoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTCauHinhSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTCauHinhSanPham.Designer.cs">
+      <DependentUpon>FrmCTCauHinhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTChiPhi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTChiPhi.Designer.cs">
+      <DependentUpon>FrmCTChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtChucVu.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtChucVu.Designer.cs">
+      <DependentUpon>FrmCtChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtDmTrungTam.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtDmTrungTam.Designer.cs">
+      <DependentUpon>FrmCtDmTrungTam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDoiTuongKhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDoiTuongKhachHang.Designer.cs">
+      <DependentUpon>FrmCTDoiTuongKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDonViTinh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDonViTinh.Designer.cs">
+      <DependentUpon>FrmCTDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDuAn.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTDuAn.Designer.cs">
+      <DependentUpon>FrmCTDuAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTHangHoa.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTHangHoa.Designer.cs">
+      <DependentUpon>FrmCTHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTHinhThucThanhToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTHinhThucThanhToan.Designer.cs">
+      <DependentUpon>FrmCTHinhThucThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiHoaDon.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiHoaDon.Designer.cs">
+      <DependentUpon>FrmCTLoaiHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiKhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiKhachHang.Designer.cs">
+      <DependentUpon>FrmCTLoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiSP.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLoaiSP.Designer.cs">
+      <DependentUpon>FrmCTLoaiSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLyDoTraHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTLyDoTraHang.Designer.cs">
+      <DependentUpon>FrmCTLyDoTraHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTMaLoi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTMaLoi.Designer.cs">
+      <DependentUpon>FrmCTMaLoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTNganHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTNganHang.Designer.cs">
+      <DependentUpon>FrmCTNganHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtNhanVien.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtNhanVien.Designer.cs">
+      <DependentUpon>FrmCtNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTOrderType.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTOrderType.Designer.cs">
+      <DependentUpon>FrmCTOrderType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtPhongBan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtPhongBan.Designer.cs">
+      <DependentUpon>FrmCtPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTThoiHanThanhToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCTThoiHanThanhToan.Designer.cs">
+      <DependentUpon>FrmCTThoiHanThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMBieuMauThue.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMBieuMauThue.Designer.cs">
+      <DependentUpon>FrmDMBieuMauThue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMCachGiaoHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMCachGiaoHang.Designer.cs">
+      <DependentUpon>FrmDMCachGiaoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMCauHinhSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMCauHinhSanPham.Designer.cs">
+      <DependentUpon>FrmDMCauHinhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMChiPhi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMChiPhi.Designer.cs">
+      <DependentUpon>FrmDMChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmChucVu.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmChucVu.Designer.cs">
+      <DependentUpon>frmDmChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmDoiTuongKhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmDoiTuongKhachHang.Designer.cs">
+      <DependentUpon>FrmDmDoiTuongKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmDonViTinh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmDonViTinh.Designer.cs">
+      <DependentUpon>FrmDmDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMDuAn.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMDuAn.Designer.cs">
+      <DependentUpon>FrmDMDuAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMHangHoa.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMHangHoa.Designer.cs">
+      <DependentUpon>FrmDMHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMHinhThucThanhToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMHinhThucThanhToan.Designer.cs">
+      <DependentUpon>FrmDMHinhThucThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmLoaiHangHoa.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmLoaiHangHoa.Designer.cs">
+      <DependentUpon>FrmDmLoaiHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMLoaiHoaDon.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMLoaiHoaDon.Designer.cs">
+      <DependentUpon>FrmDMLoaiHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmLoaiKhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDmLoaiKhachHang.Designer.cs">
+      <DependentUpon>FrmDmLoaiKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMLyDoTraHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMLyDoTraHang.Designer.cs">
+      <DependentUpon>FrmDMLyDoTraHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMMaLoiSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMMaLoiSanPham.Designer.cs">
+      <DependentUpon>FrmDMMaLoiSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMNganHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMNganHang.Designer.cs">
+      <DependentUpon>FrmDMNganHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmNhanVien.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmNhanVien.Designer.cs">
+      <DependentUpon>frmDmNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMOrderType.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMOrderType.Designer.cs">
+      <DependentUpon>FrmDMOrderType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmPhongBan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmPhongBan.Designer.cs">
+      <DependentUpon>frmDmPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMPhuongThucBanHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMPhuongThucBanHang.Designer.cs">
+      <DependentUpon>FrmDMPhuongThucBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMThoiHanThanhToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmDMThoiHanThanhToan.Designer.cs">
+      <DependentUpon>FrmDMThoiHanThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmTrungTam.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmTrungTam.Designer.cs">
+      <DependentUpon>frmDmTrungTam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_TinhThanh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_ItemSegment.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\ItemSegmentDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmLookUp_LyDoTraHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_OrderType.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\DmCauHinhSanPhamDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmLookUp_SanPham_CauHinh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_TaiKhoanQuy.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_NganHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Kho2.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_QuanHuyen.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_ChiPhi.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_PhongBan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_SanPham_1.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\DmTaiKhoanQuyDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmCaBanHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmLookUp_HangHoa_TonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_HangHoa_TonKho.designer.cs">
+      <DependentUpon>frmLookUp_HangHoa_TonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_NganHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_NganHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Hang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Chung.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Nganh.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Loai.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Nhom.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Model.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_LinhVuc.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_ThoiHanThanhToan.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_TrungTam.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_Kho.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\DmNgheNghiepDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmTinhDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmHuyenDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmDM_ListBaseNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseHangHoa.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ListBaseNew.Designer.cs">
+      <DependentUpon>frmDM_ListBaseNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_LoaiSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_NhaCungCap.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiHoaDonDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmBangKeThueDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmCachGiaoHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmChiPhiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmChungDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLyDoGiaoDichDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLyDoTraHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmModelDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmNganHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmPhuongThucBanHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmPhuongTienGiaoNhanDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmVungMienKhachDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmChiTietSegmentChild_DMChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTietSegmentChild_DMChung.Designer.cs">
+      <DependentUpon>frmChiTietSegmentChild_DMChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmenLinhVuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmenLinhVuc.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmenLinhVuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTietSegment_DMChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTietSegment_DMChung.Designer.cs">
+      <DependentUpon>frmChiTietSegment_DMChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_BangKeThue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_CachGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LyDoGiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LyDoTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_PhuongThucBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildChung.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentChildChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildLoai.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentChildLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildModel.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentChildModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildNganh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildNganh.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentChildNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildNhom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentChildNhom.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentChildNhom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_SegmentHang.Designer.cs">
+      <DependentUpon>frmChiTiet_SegmentHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_BangKeThue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_CachGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_HinhThucThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LyDoGiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LyDoTraHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_PhuongThucBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildModel.Designer.cs">
+      <DependentUpon>frmDM_SegmentChildModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietChucNangController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietChucVuController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietDonViTinhController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietDuAnController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietPhongBanController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietTaxCodeController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmEditBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseKhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseKhachHangLe.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseNhanVien.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\frmLookUpBaseSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Base\ChiTietDmChungController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\CauHinh_LoaiSanPhamDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLinhVucDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmListDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiDoiTuongDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMLoaiSPDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmMaVungDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmNganhDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmNhomDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmThanhToanDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\SynchronizableDAO.cs" />
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DMChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DMChung.Designer.cs">
+      <DependentUpon>frmChiTiet_DMChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DoiTuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DoiTuong.Designer.cs">
+      <DependentUpon>frmChiTiet_DoiTuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_HinhThucThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_HinhThucThanhToan.Designer.cs">
+      <DependentUpon>frmChiTiet_HinhThucThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_KhachHangLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_KhachHangLe.Designer.cs">
+      <DependentUpon>frmChiTiet_KhachHangLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_CauHinhLoaiSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_CauHinhLoaiSP.Designer.cs">
+      <DependentUpon>frmChiTiet_CauHinhLoaiSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiDoiTuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiDoiTuong.Designer.cs">
+      <DependentUpon>frmChiTiet_LoaiDoiTuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDMCauHinh_LoaiSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildChung.Designer.cs">
+      <DependentUpon>frmDM_SegmentChildChung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildLoai.Designer.cs">
+      <DependentUpon>frmDM_SegmentChildLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildNganh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildNganh.Designer.cs">
+      <DependentUpon>frmDM_SegmentChildNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildNhom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChildNhom.Designer.cs">
+      <DependentUpon>frmDM_SegmentChildNhom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDm_SegmentHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDm_SegmentHang.Designer.cs">
+      <DependentUpon>frmDm_SegmentHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDm_SegmentLinhVuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDm_SegmentLinhVuc.Designer.cs">
+      <DependentUpon>frmDm_SegmentLinhVuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Segment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Segment.Designer.cs">
+      <DependentUpon>frmDM_Segment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiDoiTuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ChucNang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_DuAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ListDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_ListDM.Designer.cs">
+      <DependentUpon>frmChiTiet_ListDM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiDichVu.Designer.cs">
+      <DependentUpon>frmChiTiet_LoaiDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiItem.Designer.cs">
+      <DependentUpon>frmChiTiet_LoaiItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiThuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_LoaiThuChi.Designer.cs">
+      <DependentUpon>frmChiTiet_LoaiThuChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_MaLoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_MaLoi.Designer.cs">
+      <DependentUpon>frmChiTiet_MaLoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_OrderType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_OrderType.Designer.cs">
+      <DependentUpon>frmChiTiet_OrderType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_PhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_TaxCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_TienTe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_TienTe.Designer.cs">
+      <DependentUpon>frmChiTiet_TienTe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_TrungTam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_TrungTam.Designer.cs">
+      <DependentUpon>frmChiTiet_TrungTam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ChucNang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DuAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_HangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_KhachHangLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Kho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ListBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ListBase.Designer.cs">
+      <DependentUpon>frmDM_ListBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DAO\DmChucNangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmChucVuDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmDonViTinhDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmDuAnDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiDichVuDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiItemDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMLoaiTheKhachHangDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMLoaiTheQuyenLoiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMLoaiTheUuDaiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmLoaiThuChiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMDoiTuongDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmMaLoiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmOrderTypeDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMKhoDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmPhongBanDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmQuyenHoaDonDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMSanPhamDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmTaxCodeDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmTienTeDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DMNhanVienDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DmTrungTamDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\DoiTuong_DiaChiDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DAO\Kho_NhanVienDAO.cs" />
+    <Compile Include="Modules\DanhMuc\DM_ChungBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\DM_ChungBase.Designer.cs">
+      <DependentUpon>DM_ChungBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmBC_DSSanPham.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmBC_DSSanPham.Designer.cs">
+      <DependentUpon>frmBC_DSSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_KhachHang.Designer.cs">
+      <DependentUpon>frmChiTiet_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_Kho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_Kho.Designer.cs">
+      <DependentUpon>frmChiTiet_Kho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_MatHang.Designer.cs">
+      <DependentUpon>frmChiTiet_MatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_NhanVien.Designer.cs">
+      <DependentUpon>frmChiTiet_NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_The.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_The.Designer.cs">
+      <DependentUpon>frmChiTiet_The.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_CauHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_CauHinh.designer.cs">
+      <DependentUpon>frmDM_CauHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ChucNang_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ChucVu_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Chung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Chung.Designer.cs">
+      <DependentUpon>frmDM_Chung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DongBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DongBo.Designer.cs">
+      <DependentUpon>frmDM_DongBo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DonViTinh_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_DuAn_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_KhachHang_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_KhachHang_Old.Designer.cs">
+      <DependentUpon>frmDM_KhachHang_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Kho_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_Kho_Old.Designer.cs">
+      <DependentUpon>frmDM_Kho_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ListDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiDichVu_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiDichVu_Old.designer.cs">
+      <DependentUpon>frmDM_LoaiDichVu_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiItem_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiItem_Old.designer.cs">
+      <DependentUpon>frmDM_LoaiItem_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiThuChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiThuChi_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_LoaiThuChi_OLD.Designer.cs">
+      <DependentUpon>frmDM_LoaiThuChi_OLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_MaLoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_MaLoi_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_MaLoi_Old.designer.cs">
+      <DependentUpon>frmDM_MaLoi_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_MatHang_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_MatHang_Old.Designer.cs">
+      <DependentUpon>frmDM_MatHang_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_NhanVien_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_NhanVien_OLD.Designer.cs">
+      <DependentUpon>frmDM_NhanVien_OLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_OrderType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_OrderType_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_OrderType_Old.Designer.cs">
+      <DependentUpon>frmDM_OrderType_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_PhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_PhongBan_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_QuyenHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_QuyenHoaDon_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_QuyenHoaDon_Old.Designer.cs">
+      <DependentUpon>frmDM_QuyenHoaDon_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_SegmentChild.Designer.cs">
+      <DependentUpon>frmDM_SegmentChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TaxCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TaxCode_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_ThanhToan.Designer.cs">
+      <DependentUpon>frmDM_ThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_The.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_The_Old.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_The_Old.Designer.cs">
+      <DependentUpon>frmDM_The_Old.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TienTe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TienTe_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TienTe_OLD.Designer.cs">
+      <DependentUpon>frmDM_TienTe_OLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TrungTam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TrungTam_oLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_TrungTam_oLD.Designer.cs">
+      <DependentUpon>frmDM_TrungTam_oLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmListDM_OLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmListDM_OLD.Designer.cs">
+      <DependentUpon>frmListDM_OLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_HangHoa.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_KhachHang.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_KhachHangLe.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_NhanVien.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmLookUp_SanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_ChiTiet_CauHinhSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_ChiTiet_CauHinhSanPham.Designer.cs">
+      <DependentUpon>frm_ChiTiet_CauHinhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_Chon_SanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_Chon_SanPham.Designer.cs">
+      <DependentUpon>frm_Chon_SanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_Chon_SanPham_MaVach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_Chon_SanPham_MaVach.Designer.cs">
+      <DependentUpon>frm_Chon_SanPham_MaVach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_DM_CauHinhSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frm_DM_CauHinhSanPham.Designer.cs">
+      <DependentUpon>frm_DM_CauHinhSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Infors\ItemSegmentInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMCauHinhSanPhamInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTaiKhoanQuyInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DmCaBanHangInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\CauHinh_LoaiSanPhamInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DmNgheNghiepInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMHuyenInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTinhInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiHoaDonInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMBangKeThueInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMCachGiaoHangInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMChiPhiInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMChucNangInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMChucVuInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMChucVuPairInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMDonViTinhInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMDonViTinhLoadInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMDuAnInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLyDoGiaoDichInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLyDoTraHangInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMNganHangInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMPhuongThucBanHangInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMPhuongTienGiaoNhanInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMSanPhamBanInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMSanPhamBriefInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMVungMienKhachInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\ItemTonKhoInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\LookUpInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\SegmentInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMListInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiDichVuInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiDoiTuongInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiItemInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiSanPhamInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiSPPairInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiTheKhachHangCBOInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiTheKhachHangInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiTheKhachHangLoadInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DmLoaiTheQuyenLoiInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DmLoaiTheUuDaiInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMLoaiThuChiInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMDoiTuongInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMDoiTuongPairInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMMaLoiInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMMaLoiPairInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\SegmentChildInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMOrderTypeInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMOrderTypePairInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMKhoCBOLoadInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMKhoGridLoadInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMKhoInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMPhongBanInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMPhongBanPairInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMQuyenHoaDonInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMSanPhamInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMSanPhamPairInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTaxCodeInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMThanhToanInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTienTeInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DmNhanVienGridInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMNhanVienInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTrungTamInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DMTrungTamPairInfor.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\DoiTuong_DiaChiInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\Kho_NhanvienInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\MaVungInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Infors\NhanVienCBOInfo.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\CauHinh_LoaiSanPhamDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMCauHinhSanPhamDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMTaiKhoanQuyDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMCaBanHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMNgheNghiepDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMTinhDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMHuyenDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiHoaDonDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMBangKeThueDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMCachGiaoHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMChiPhiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmChungDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmLinhVucDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmLoaiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmLoaiDoiTuongDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiSanPhamDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLyDoGiaoDichDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLyDoTraHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmModelDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMNganHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmNganhDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmNhomDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMPhuongThucBHDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMPhuongTienGiaoNhanDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DmSegmentDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMTaxCodeDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMChucNangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMChucVuDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMDoiTuongDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMDonViTinhDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMDuAnDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMKhoDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiDichVuDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiItemDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiTheKhachHangDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiTheQuyenLoiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiTheUuDaiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMLoaiThuChiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMMaLoiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMNhanVienDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMOrderTypeProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMQuyenHoaDonDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMPhongBanDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMSanPhamDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMThanhToanDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMTienTeDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMTrungTamDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DMVungMienKhachDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DoiTuongDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\DoiTuong_DiaChiDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\KhaiBaoDMDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\Kho_NhanVienDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\MaVungDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\SynchronizableProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Providers\ItemSegmentDataProvider.cs" />
+    <Compile Include="Modules\DanhMuc\Reports\rpt_BC_DSSanPham.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_BC_DSSanPham.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmDM_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_QuyenHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\frmChiTiet_QuyenHoaDon.Designer.cs">
+      <DependentUpon>frmChiTiet_QuyenHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_CauHinhLoaiSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_DMChung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_KhachHangLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_Kho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_The.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Test\frmChiTiet_TrungTam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTBieu MauThueView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTCachGiaoHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTCauHinhSanPhamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTChiPhiView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTDoiTuongView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTDonViTinhView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTDuAnView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTHangHoaView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTHinhThucThanhToanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTKhoView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTLoaiHoaDonView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTLoaiKhachHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTLoaiSanPhamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTLyDoTraHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTMaLoiView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTNganHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTNhanVienView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTOrderTypeView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTPhongBanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTPhuongThucBanHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTThoiHanThanhToanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTTrungTamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSBieuMauThueView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSCachGiaoHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSCauHinhSanPhamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSChiPhiView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSDoiTuongView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSDonViTinhView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSDuAnView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSHangHoaView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSHinhThucThanhToanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSKhoView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSLoaiHoaDonView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSLoaiKhachHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSLoaiSanPhamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSLyDoTraHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSMaLoiView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSNganHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSNhanVienView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSOrderTypeView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSPhongBanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSPhuongThucBanHangView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSThoiHanThanhToanView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSTrungTamView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtKho.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\FrmCtKho.Designer.cs">
+      <DependentUpon>FrmCtKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmKho.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Form2\frmDmKho.Designer.cs">
+      <DependentUpon>frmDmKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\CTChucVuView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\DSChucVuView.cs">
+    </Compile>
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTBieuMauThueView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTCachGiaoHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTCauHinhSanPhamView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTChiPhiView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTChucVuView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTDoiTuongView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTDonViTinhView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTDuAnView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTHangHoaView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTHinhThucThanhToanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTKhoView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTLoaiHoaDonView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTLoaiKhachHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTLoaiSanPhamView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTLyDoTraHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTMaLoiView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTNganHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTNhanVienView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTOrderTypeView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTPhongBanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTPhuongThucBanHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTThoiHanThanhToanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\ICTTrungTamView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSBieuMauThueView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSCachGiaoHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSCauHinhSanPhamView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSChiPhiView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSChucVuView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSDoiTuongView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSDonViTinhView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSDuAnView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSHangHoaView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSHinhThucThanhToanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSKhoView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSLoaiHoaDonView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSLoaiKhachHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSLoaiSanPhamView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSLyDoTraHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSMaLoiView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSNganHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSNhanVienView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSOrderTypeView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSPhongBanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSPhuongThucBanHangView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSThoiHanThanhToanView.cs" />
+    <Compile Include="Modules\DanhMuc\Views\IViews\IDSTrungTamView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\..\Properties\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Base\frmEditBase.resx">
+      <DependentUpon>frmEditBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_NhomNguoiDung.resx">
+      <DependentUpon>frmLookUp_NhomNguoiDung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_KhoNhapLai.resx">
+      <DependentUpon>frmLookUp_KhoNhapLai.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_KhoDieuChuyen.resx">
+      <DependentUpon>frmLookUp_KhoDieuChuyen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmChiTietPhuongThucBanHang.resx">
+      <DependentUpon>FrmChiTietPhuongThucBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTBieuMauThue.resx">
+      <DependentUpon>FrmCTBieuMauThue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTCachGiaoHang.resx">
+      <DependentUpon>FrmCTCachGiaoHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTCauHinhSanPham.resx">
+      <DependentUpon>FrmCTCauHinhSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTChiPhi.resx">
+      <DependentUpon>FrmCTChiPhi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCtChucVu.resx">
+      <DependentUpon>FrmCtChucVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCtDmTrungTam.resx">
+      <DependentUpon>FrmCtDmTrungTam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTDoiTuongKhachHang.resx">
+      <DependentUpon>FrmCTDoiTuongKhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTDonViTinh.resx">
+      <DependentUpon>FrmCTDonViTinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTDuAn.resx">
+      <DependentUpon>FrmCTDuAn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTHangHoa.resx">
+      <DependentUpon>FrmCTHangHoa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTHinhThucThanhToan.resx">
+      <DependentUpon>FrmCTHinhThucThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTLoaiHoaDon.resx">
+      <DependentUpon>FrmCTLoaiHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTLoaiKhachHang.resx">
+      <DependentUpon>FrmCTLoaiKhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTLoaiSP.resx">
+      <DependentUpon>FrmCTLoaiSP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTLyDoTraHang.resx">
+      <DependentUpon>FrmCTLyDoTraHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTMaLoi.resx">
+      <DependentUpon>FrmCTMaLoi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTNganHang.resx">
+      <DependentUpon>FrmCTNganHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCtNhanVien.resx">
+      <DependentUpon>FrmCtNhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTOrderType.resx">
+      <DependentUpon>FrmCTOrderType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCtPhongBan.resx">
+      <DependentUpon>FrmCtPhongBan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCTThoiHanThanhToan.resx">
+      <DependentUpon>FrmCTThoiHanThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMBieuMauThue.resx">
+      <DependentUpon>FrmDMBieuMauThue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMCachGiaoHang.resx">
+      <DependentUpon>FrmDMCachGiaoHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMCauHinhSanPham.resx">
+      <DependentUpon>FrmDMCauHinhSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMChiPhi.resx">
+      <DependentUpon>FrmDMChiPhi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\frmDmChucVu.resx">
+      <DependentUpon>frmDmChucVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDmDoiTuongKhachHang.resx">
+      <DependentUpon>FrmDmDoiTuongKhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDmDonViTinh.resx">
+      <DependentUpon>FrmDmDonViTinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMDuAn.resx">
+      <DependentUpon>FrmDMDuAn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMHangHoa.resx">
+      <DependentUpon>FrmDMHangHoa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMHinhThucThanhToan.resx">
+      <DependentUpon>FrmDMHinhThucThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDmLoaiHangHoa.resx">
+      <DependentUpon>FrmDmLoaiHangHoa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMLoaiHoaDon.resx">
+      <DependentUpon>FrmDMLoaiHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDmLoaiKhachHang.resx">
+      <DependentUpon>FrmDmLoaiKhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMLyDoTraHang.resx">
+      <DependentUpon>FrmDMLyDoTraHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMMaLoiSanPham.resx">
+      <DependentUpon>FrmDMMaLoiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMNganHang.resx">
+      <DependentUpon>FrmDMNganHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\frmDmNhanVien.resx">
+      <DependentUpon>frmDmNhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMOrderType.resx">
+      <DependentUpon>FrmDMOrderType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\frmDmPhongBan.resx">
+      <DependentUpon>frmDmPhongBan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMPhuongThucBanHang.resx">
+      <DependentUpon>FrmDMPhuongThucBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmDMThoiHanThanhToan.resx">
+      <DependentUpon>FrmDMThoiHanThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\frmDmTrungTam.resx">
+      <DependentUpon>frmDmTrungTam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_TinhThanh.resx">
+      <DependentUpon>frmLookUp_TinhThanh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_ItemSegment.resx">
+      <DependentUpon>frmLookUp_ItemSegment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_LyDoTraHang.resx">
+      <DependentUpon>frmLookUp_LyDoTraHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_OrderType.resx">
+      <DependentUpon>frmLookUp_OrderType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_SanPham_CauHinh.resx">
+      <DependentUpon>frmLookUp_SanPham_CauHinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_TaiKhoanQuy.resx">
+      <DependentUpon>frmLookUp_TaiKhoanQuy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_NganHang.resx">
+      <DependentUpon>frmLookUp_NganHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Kho2.resx">
+      <DependentUpon>frmLookUp_Kho2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_QuanHuyen.resx">
+      <DependentUpon>frmLookUp_QuanHuyen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_ChiPhi.resx">
+      <DependentUpon>frmLookUp_ChiPhi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_PhongBan.resx">
+      <DependentUpon>frmLookUp_PhongBan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_SanPham_1.resx">
+      <DependentUpon>frmLookUp_SanPham_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_HangHoa_TonKho.resx">
+      <DependentUpon>frmLookUp_HangHoa_TonKho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_NganHang.resx">
+      <DependentUpon>frmChiTiet_NganHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_NganHang.resx">
+      <DependentUpon>frmDM_NganHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Hang.resx">
+      <DependentUpon>frmLookUp_Hang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Chung.resx">
+      <DependentUpon>frmLookUp_Chung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Nganh.resx">
+      <DependentUpon>frmLookUp_Nganh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Loai.resx">
+      <DependentUpon>frmLookUp_Loai.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Nhom.resx">
+      <DependentUpon>frmLookUp_Nhom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Model.resx">
+      <DependentUpon>frmLookUp_Model.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_LinhVuc.resx">
+      <DependentUpon>frmLookUp_LinhVuc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_ThoiHanThanhToan.resx">
+      <DependentUpon>frmLookUp_ThoiHanThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_TrungTam.resx">
+      <DependentUpon>frmLookUp_TrungTam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_Kho.resx">
+      <DependentUpon>frmLookUp_Kho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ListBaseNew.resx">
+      <DependentUpon>frmDM_ListBaseNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_LoaiSanPham.resx">
+      <DependentUpon>frmLookUp_LoaiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_NhaCungCap.resx">
+      <DependentUpon>frmLookUp_NhaCungCap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTietSegmentChild_DMChung.resx">
+      <DependentUpon>frmChiTietSegmentChild_DMChung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiHoaDon.resx">
+      <DependentUpon>frmChiTiet_LoaiHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmenLinhVuc.resx">
+      <DependentUpon>frmChiTiet_SegmenLinhVuc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTietSegment_DMChung.resx">
+      <DependentUpon>frmChiTietSegment_DMChung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_BangKeThue.resx">
+      <DependentUpon>frmChiTiet_BangKeThue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_CachGiaoHang.resx">
+      <DependentUpon>frmChiTiet_CachGiaoHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_ChiPhi.resx">
+      <DependentUpon>frmChiTiet_ChiPhi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_DMChung.resx">
+      <DependentUpon>frmChiTiet_DMChung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_DoiTuong.resx">
+      <DependentUpon>frmChiTiet_DoiTuong.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_HinhThucThanhToan.resx">
+      <DependentUpon>frmChiTiet_HinhThucThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_KhachHangLe.resx">
+      <DependentUpon>frmChiTiet_KhachHangLe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_CauHinhLoaiSP.resx">
+      <DependentUpon>frmChiTiet_CauHinhLoaiSP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiDoiTuong.resx">
+      <DependentUpon>frmChiTiet_LoaiDoiTuong.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiSanPham.resx">
+      <DependentUpon>frmChiTiet_LoaiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LyDoGiaoDich.resx">
+      <DependentUpon>frmChiTiet_LyDoGiaoDich.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LyDoTraHang.resx">
+      <DependentUpon>frmChiTiet_LyDoTraHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_PhuongThucBanHang.resx">
+      <DependentUpon>frmChiTiet_PhuongThucBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentChildChung.resx">
+      <DependentUpon>frmChiTiet_SegmentChildChung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentChildLoai.resx">
+      <DependentUpon>frmChiTiet_SegmentChildLoai.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentChildModel.resx">
+      <DependentUpon>frmChiTiet_SegmentChildModel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentChildNganh.resx">
+      <DependentUpon>frmChiTiet_SegmentChildNganh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentChildNhom.resx">
+      <DependentUpon>frmChiTiet_SegmentChildNhom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_SegmentHang.resx">
+      <DependentUpon>frmChiTiet_SegmentHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_ThanhToan.resx">
+      <DependentUpon>frmChiTiet_ThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDMCauHinh_LoaiSanPham.resx">
+      <DependentUpon>frmDMCauHinh_LoaiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_BangKeThue.resx">
+      <DependentUpon>frmDM_BangKeThue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_CachGiaoHang.resx">
+      <DependentUpon>frmDM_CachGiaoHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ChiPhi.resx">
+      <DependentUpon>frmDM_ChiPhi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_HinhThucThanhToan.resx">
+      <DependentUpon>frmDM_HinhThucThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiHoaDon.resx">
+      <DependentUpon>frmDM_LoaiHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LyDoGiaoDich.resx">
+      <DependentUpon>frmDM_LyDoGiaoDich.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LyDoTraHang.resx">
+      <DependentUpon>frmDM_LyDoTraHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_PhuongThucBanHang.resx">
+      <DependentUpon>frmDM_PhuongThucBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChildChung.resx">
+      <DependentUpon>frmDM_SegmentChildChung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChildLoai.resx">
+      <DependentUpon>frmDM_SegmentChildLoai.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChildModel.resx">
+      <DependentUpon>frmDM_SegmentChildModel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChildNganh.resx">
+      <DependentUpon>frmDM_SegmentChildNganh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDm_SegmentLinhVuc.resx">
+      <DependentUpon>frmDm_SegmentLinhVuc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChildNhom.resx">
+      <DependentUpon>frmDM_SegmentChildNhom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDm_SegmentHang.resx">
+      <DependentUpon>frmDm_SegmentHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_Segment.resx">
+      <DependentUpon>frmDM_Segment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiDoiTuong.resx">
+      <DependentUpon>frmDM_LoaiDoiTuong.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiSanPham.resx">
+      <DependentUpon>frmDM_LoaiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_ChucNang.resx">
+      <DependentUpon>frmChiTiet_ChucNang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_ChucVu.resx">
+      <DependentUpon>frmChiTiet_ChucVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_DonViTinh.resx">
+      <DependentUpon>frmChiTiet_DonViTinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_DuAn.resx">
+      <DependentUpon>frmChiTiet_DuAn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_ListDM.resx">
+      <DependentUpon>frmChiTiet_ListDM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiDichVu.resx">
+      <DependentUpon>frmChiTiet_LoaiDichVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiItem.resx">
+      <DependentUpon>frmChiTiet_LoaiItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_LoaiThuChi.resx">
+      <DependentUpon>frmChiTiet_LoaiThuChi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_MaLoi.resx">
+      <DependentUpon>frmChiTiet_MaLoi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_OrderType.resx">
+      <DependentUpon>frmChiTiet_OrderType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_PhongBan.resx">
+      <DependentUpon>frmChiTiet_PhongBan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_TaxCode.resx">
+      <DependentUpon>frmChiTiet_TaxCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_TienTe.resx">
+      <DependentUpon>frmChiTiet_TienTe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_TrungTam.resx">
+      <DependentUpon>frmChiTiet_TrungTam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ChucNang.resx">
+      <DependentUpon>frmDM_ChucNang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ChucVu.resx">
+      <DependentUpon>frmDM_ChucVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_DonViTinh.resx">
+      <DependentUpon>frmDM_DonViTinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_DuAn.resx">
+      <DependentUpon>frmDM_DuAn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_HangHoa.resx">
+      <DependentUpon>frmDM_HangHoa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_KhachHang.resx">
+      <DependentUpon>frmDM_KhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_KhachHangLe.resx">
+      <DependentUpon>frmDM_KhachHangLe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_Kho.resx">
+      <DependentUpon>frmDM_Kho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ListBase.resx">
+      <DependentUpon>frmDM_ListBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\DM_ChungBase.resx">
+      <DependentUpon>DM_ChungBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmBC_DSSanPham.resx">
+      <DependentUpon>frmBC_DSSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_KhachHang.resx">
+      <DependentUpon>frmChiTiet_KhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_Kho.resx">
+      <DependentUpon>frmChiTiet_Kho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_MatHang.resx">
+      <DependentUpon>frmChiTiet_MatHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_NhanVien.resx">
+      <DependentUpon>frmChiTiet_NhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_The.resx">
+      <DependentUpon>frmChiTiet_The.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_CauHinh.resx">
+      <DependentUpon>frmDM_CauHinh.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_Chung.resx">
+      <DependentUpon>frmDM_Chung.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_DongBo.resx">
+      <DependentUpon>frmDM_DongBo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_KhachHang_Old.resx">
+      <DependentUpon>frmDM_KhachHang_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_Kho_Old.resx">
+      <DependentUpon>frmDM_Kho_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ListDM.resx">
+      <DependentUpon>frmDM_ListDM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiDichVu.resx">
+      <DependentUpon>frmDM_LoaiDichVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiDichVu_Old.resx">
+      <DependentUpon>frmDM_LoaiDichVu_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiItem.resx">
+      <DependentUpon>frmDM_LoaiItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiItem_Old.resx">
+      <DependentUpon>frmDM_LoaiItem_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiThuChi.resx">
+      <DependentUpon>frmDM_LoaiThuChi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_LoaiThuChi_OLD.resx">
+      <DependentUpon>frmDM_LoaiThuChi_OLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_MaLoi.resx">
+      <DependentUpon>frmDM_MaLoi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_MaLoi_Old.resx">
+      <DependentUpon>frmDM_MaLoi_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_MatHang_Old.resx">
+      <DependentUpon>frmDM_MatHang_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_NhanVien_OLD.resx">
+      <DependentUpon>frmDM_NhanVien_OLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_OrderType.resx">
+      <DependentUpon>frmDM_OrderType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_OrderType_Old.resx">
+      <DependentUpon>frmDM_OrderType_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_PhongBan.resx">
+      <DependentUpon>frmDM_PhongBan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_QuyenHoaDon.resx">
+      <DependentUpon>frmDM_QuyenHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_QuyenHoaDon_Old.resx">
+      <DependentUpon>frmDM_QuyenHoaDon_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_SegmentChild.resx">
+      <DependentUpon>frmDM_SegmentChild.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_TaxCode.resx">
+      <DependentUpon>frmDM_TaxCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_ThanhToan.resx">
+      <DependentUpon>frmDM_ThanhToan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_The.resx">
+      <DependentUpon>frmDM_The.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_The_Old.resx">
+      <DependentUpon>frmDM_The_Old.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_TienTe.resx">
+      <DependentUpon>frmDM_TienTe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_TienTe_OLD.resx">
+      <DependentUpon>frmDM_TienTe_OLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_TrungTam.resx">
+      <DependentUpon>frmDM_TrungTam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_TrungTam_oLD.resx">
+      <DependentUpon>frmDM_TrungTam_oLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmListDM_OLD.resx">
+      <DependentUpon>frmListDM_OLD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_HangHoa.resx">
+      <DependentUpon>frmLookUp_HangHoa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_KhachHang.resx">
+      <DependentUpon>frmLookUp_KhachHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_KhachHangLe.resx">
+      <DependentUpon>frmLookUp_KhachHangLe.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_NhanVien.resx">
+      <DependentUpon>frmLookUp_NhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmLookUp_SanPham.resx">
+      <DependentUpon>frmLookUp_SanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frm_ChiTiet_CauHinhSanPham.resx">
+      <DependentUpon>frm_ChiTiet_CauHinhSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frm_Chon_SanPham.resx">
+      <DependentUpon>frm_Chon_SanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frm_Chon_SanPham_MaVach.resx">
+      <DependentUpon>frm_Chon_SanPham_MaVach.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frm_DM_CauHinhSanPham.resx">
+      <DependentUpon>frm_DM_CauHinhSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Reports\rpt_BC_DSSanPham.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_BC_DSSanPham.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmDM_NhanVien.resx">
+      <DependentUpon>frmDM_NhanVien.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\frmChiTiet_QuyenHoaDon.resx">
+      <DependentUpon>frmChiTiet_QuyenHoaDon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\FrmCtKho.resx">
+      <DependentUpon>FrmCtKho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DanhMuc\Form2\frmDmKho.resx">
+      <DependentUpon>frmDmKho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\QLBH.Common\QLBH.Common.csproj">
+      <Project>{D8FDE99A-C8B2-4585-BBBA-D021ED285554}</Project>
+      <Name>QLBH.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetFileName)" "$(ProjectDir)..\..\..\QLBH.Documents\References\TranAnh\DanhMuc\$(TargetFileName)"
+copy /Y "$(ProjectDir)bin\$(ConfigurationName)\TranAnh\QLBanHang.Modules.DanhMuc.pdb" "$(ProjectDir)..\..\..\QLBH.Documents\References\TranAnh\DanhMuc\QLBanHang.Modules.DanhMuc.pdb"</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
