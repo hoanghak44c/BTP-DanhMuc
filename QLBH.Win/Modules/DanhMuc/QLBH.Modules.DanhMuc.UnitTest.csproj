@@ -44,6 +44,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,11 +78,11 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="QLBanHang.Modules.HeThong, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\QLBH.Documents\References\TranAnh\HeThong\QLBanHang.Modules.HeThong.dll</HintPath>
+      <HintPath>..\..\..\..\Common\QLBH.Documents\References\TranAnh\HeThong\QLBanHang.Modules.HeThong.dll</HintPath>
     </Reference>
     <Reference Include="QLBH.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\QLBH.Documents\References\QLBH.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Common\QLBH.Documents\References\QLBH.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -194,11 +195,11 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>mkdir "$(TargetDir)Help"
-copy "..\..\..\..\Help\HDSD_QLBH.chm" "$(TargetDir)\Help"
-mkdir "$(TargetDir)Temp"
-copy "$(ProjectDir)Temp\*.*" "$(TargetDir)\Temp"
-mkdir "$(TargetDir)Images"
-copy "..\..\..\..\Images\bg.jpg" "$(TargetDir)\Images"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(TargetDir)Help" mkdir "$(TargetDir)Help"
+copy "$(ProjectDir)..\..\..\..\Common\QLBH.Win\Help\HDSD_QLBH.chm" "$(TargetDir)Help"
+if not exist "$(TargetDir)Temp" mkdir "$(TargetDir)Temp"
+copy "$(ProjectDir)..\..\..\..\Common\QLBH.Win\Temp\*.*" "$(TargetDir)Temp"
+if not exist "$(TargetDir)Images" mkdir "$(TargetDir)Images"
+copy "$(ProjectDir)..\..\..\..\Common\QLBH.Win\Images\bg.jpg" "$(TargetDir)Images"</PostBuildEvent>
   </PropertyGroup>
 </Project>

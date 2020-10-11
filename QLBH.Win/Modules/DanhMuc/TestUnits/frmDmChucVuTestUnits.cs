@@ -193,7 +193,7 @@ namespace QLBanHang.TestUnits
         [TestMethod]
         public void TestDmNganHangProvider()
         {
-            DMNganHangDataProvider.Instance.GetListNganhTonKho(1);
+            //DMNganHangDataProvider.Instance.GetListNganhTonKho(1);
         }
     }
 }
