@@ -123,44 +123,56 @@ namespace QLBanHang.Modules.DanhMuc.DAO
             //ExecuteNoneQuery();
 
             //return Convert.ToInt32(Parameters["@IdNhanVien"].Value.ToString());
-            ExecuteCommand(Declare.StoreProcedureNamespace.sp_DM_NhanVien_Insert, dmNhanVienInfor.MaNhanVien,
-                           dmNhanVienInfor.HoTen, dmNhanVienInfor.NgaySinh, dmNhanVienInfor.GioiTinh,
-                           dmNhanVienInfor.IdPhongBan, dmNhanVienInfor.IdChucVu,
-                           dmNhanVienInfor.DiaChi, dmNhanVienInfor.DienThoai, dmNhanVienInfor.Email,dmNhanVienInfor.GhiChu, dmNhanVienInfor.SuDung,
-                           dmNhanVienInfor.IdTrungTamHachToan, dmNhanVienInfor.IdQuanLyTrucTiep, dmNhanVienInfor.PhuTrachCSKH, dmNhanVienInfor.MaVach);
-            return Common.IntValue(Parameters["p_IdNhanVien"].Value.ToString());
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.sp_DM_NhanVien_Insert, 
+               dmNhanVienInfor.MaNhanVien,
+               dmNhanVienInfor.HoTen, dmNhanVienInfor.NgaySinh, dmNhanVienInfor.GioiTinh,
+               dmNhanVienInfor.IdPhongBan, dmNhanVienInfor.IdChucVu,
+               dmNhanVienInfor.DiaChi, dmNhanVienInfor.DienThoai, dmNhanVienInfor.Email,dmNhanVienInfor.GhiChu, dmNhanVienInfor.SuDung,
+               dmNhanVienInfor.IdTrungTamHachToan, dmNhanVienInfor.IdQuanLyTrucTiep, dmNhanVienInfor.PhuTrachCSKH, dmNhanVienInfor.MaVach);
         }
         internal void Delete(DMNhanVienInfo dmNhanVienInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spNhanVienDelete);
-            Parameters.AddWithValue("@IdNhanVien", dmNhanVienInfor.IdNhanVien);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spNhanVienDelete, dmNhanVienInfor.IdNhanVien);
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spNhanVienDelete);
+            //Parameters.AddWithValue("@IdNhanVien", dmNhanVienInfor.IdNhanVien);
+            //ExecuteNoneQuery();
         }
         internal bool Exist(DMNhanVienInfo dmNhanVienInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spNhanVienExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdNhanVien", dmNhanVienInfor.IdNhanVien);
-            Parameters.AddWithValue("@MaNhanVien", dmNhanVienInfor.MaNhanVien);
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spNhanVienExist,
+                dmNhanVienInfor.IdNhanVien,
+                dmNhanVienInfor.MaNhanVien) > 0;
 
-            return Convert.ToInt32(Parameters["@Count"].Value.ToString()) == 1;
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spNhanVienExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@IdNhanVien", dmNhanVienInfor.IdNhanVien);
+            //Parameters.AddWithValue("@MaNhanVien", dmNhanVienInfor.MaNhanVien);
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@Count"].Value.ToString()) == 1;
         }
         internal List<DMNhanVienInfo> Search(DMNhanVienInfo dmNhanVienInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spNhanVienSearch);
-            Parameters.AddWithValue("@TenNhanVien", dmNhanVienInfor.HoTen);
-            Parameters.AddWithValue("@MaNhanVien", dmNhanVienInfor.MaNhanVien);
-            Parameters.AddWithValue("@IdPhongBan", dmNhanVienInfor.IdPhongBan);
-            Parameters.AddWithValue("@IdChucVu", dmNhanVienInfor.IdChucVu);
-            return FillToList<DMNhanVienInfo>();
+            return GetListCommand<DMNhanVienInfo>(Declare.StoreProcedureNamespace.spNhanVienSearch,
+                dmNhanVienInfor.HoTen,
+                dmNhanVienInfor.MaNhanVien,
+                dmNhanVienInfor.IdPhongBan,
+                dmNhanVienInfor.IdChucVu);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spNhanVienSearch);
+            //Parameters.AddWithValue("@TenNhanVien", dmNhanVienInfor.HoTen);
+            //Parameters.AddWithValue("@MaNhanVien", dmNhanVienInfor.MaNhanVien);
+            //Parameters.AddWithValue("@IdPhongBan", dmNhanVienInfor.IdPhongBan);
+            //Parameters.AddWithValue("@IdChucVu", dmNhanVienInfor.IdChucVu);
+            //return FillToList<DMNhanVienInfo>();
         }
 
         public DMNhanVienInfo GetNhanVienByIdInfo(int idNhanVien)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spNhanVienGetById);
-            Parameters.AddWithValue("@IdNhanVien", idNhanVien);
-            return FillToObject<DMNhanVienInfo>();
+            return GetObjectCommand<DMNhanVienInfo>(Declare.StoreProcedureNamespace.spNhanVienGetById, idNhanVien);
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spNhanVienGetById);
+            //Parameters.AddWithValue("@IdNhanVien", idNhanVien);
+            //return FillToObject<DMNhanVienInfo>();
         }
         /// <summary>
         /// Trả về danh sách các nhân viên được phép lookup theo user hiện tại

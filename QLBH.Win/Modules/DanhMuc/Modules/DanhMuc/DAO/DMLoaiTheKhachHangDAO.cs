@@ -39,47 +39,67 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         }
         internal void Update(DMLoaiTheKhachHangInfo dmLoaiTheInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangUpdate);
-            SetParams(dmLoaiTheInfor);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangUpdate,
+                ParseToParams<DMLoaiTheKhachHangInfo>(dmLoaiTheInfor));
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangUpdate);
+            //SetParams(dmLoaiTheInfor);
+            //ExecuteNoneQuery();
         }
         internal int Insert(DMLoaiTheKhachHangInfo dmLoaiTheInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangInsert);
-            SetParams(dmLoaiTheInfor);
-            Parameters["@IdLoaiThe"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangInsert,
+                ParseToParams<DMLoaiTheKhachHangInfo>(dmLoaiTheInfor));
 
-            return Convert.ToInt32(Parameters["@IdLoaiThe"].Value.ToString());
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangInsert);
+            //SetParams(dmLoaiTheInfor);
+            //Parameters["@IdLoaiThe"].Direction = ParameterDirection.Output;
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@IdLoaiThe"].Value.ToString());
         }
         public void Delete(DMLoaiTheKhachHangInfo dmLoaiTheKHInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangDelete);
-            Parameters.AddWithValue("@IdLoaiThe", dmLoaiTheKHInfor.IdLoaiThe);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangDelete,
+                dmLoaiTheKHInfor.IdLoaiThe);
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangDelete);
+            //Parameters.AddWithValue("@IdLoaiThe", dmLoaiTheKHInfor.IdLoaiThe);
+            //ExecuteNoneQuery();
         }
         internal bool Exist(DMLoaiTheKhachHangInfo dmLoaitheKHInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdLoaiThe", dmLoaitheKHInfor.IdLoaiThe);
-            Parameters.AddWithValue("@MaThe", dmLoaitheKHInfor.MaThe);
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangExist,
+                dmLoaitheKHInfor.IdLoaiThe,
+                dmLoaitheKHInfor.MaThe) > 0;
 
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@IdLoaiThe", dmLoaitheKHInfor.IdLoaiThe);
+            //Parameters.AddWithValue("@MaThe", dmLoaitheKHInfor.MaThe);
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@Count"].Value) == 1;
         }
         internal List<DMLoaiTheKhachHangInfo> Search(DMLoaiTheKhachHangInfo dmLoaitheKHInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangSearch);
-            Parameters.AddWithValue("@TenTenThe", dmLoaitheKHInfor.TenThe);
-            Parameters.AddWithValue("@MaThe", dmLoaitheKHInfor.MaThe);
-            return FillToList<DMLoaiTheKhachHangInfo>();
+            return GetListCommand<DMLoaiTheKhachHangInfo>(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangSearch,
+                dmLoaitheKHInfor.TenThe,
+                dmLoaitheKHInfor.MaThe);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangSearch);
+            //Parameters.AddWithValue("@TenTenThe", dmLoaitheKHInfor.TenThe);
+            //Parameters.AddWithValue("@MaThe", dmLoaitheKHInfor.MaThe);
+            //return FillToList<DMLoaiTheKhachHangInfo>();
         }
         public DMLoaiTheKhachHangInfo GetDoiTuongByIdInfo(int idLoaithe)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangGetById);
-            Parameters.AddWithValue("@IdLoaiThe", idLoaithe);
-            return FillToObject<DMLoaiTheKhachHangInfo>();
+            return GetObjectCommand<DMLoaiTheKhachHangInfo>(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangGetById,
+                idLoaithe);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiThe_KhachHangGetById);
+            //Parameters.AddWithValue("@IdLoaiThe", idLoaithe);
+            //return FillToObject<DMLoaiTheKhachHangInfo>();
         }
     }
 }

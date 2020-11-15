@@ -37,39 +37,51 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         //}
         internal void Update(DMListInfor dmListInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoUpdate);
-            SetParams(dmListInfor);
-            ExecuteNoneQuery();
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoUpdate);
+            //SetParams(dmListInfor);
+            //ExecuteNoneQuery();
+
+            ExecuteCommand(Declare.StoreProcedureNamespace.spKhaiBaoUpdate, ParseToParams<DMListInfor>(dmListInfor));
         }
         internal void Insert(DMListInfor dmListInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoInsert);
-            SetParams(dmListInfor);
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoInsert);
+            //SetParams(dmListInfor);
             //Parameters["@IdDoiTuong"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            //ExecuteNoneQuery();
 
             //return Convert.ToInt32(Parameters["@IdDoiTuong"].Value.ToString());
+
+            ExecuteCommand(Declare.StoreProcedureNamespace.spKhaiBaoInsert, ParseToParams<DMListInfor>(dmListInfor));
         }
         internal void Delete(DMListInfor dmListInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoDelete);
-            Parameters.AddWithValue("@TblName", dmListInfor.TblName);
-            ExecuteNoneQuery();
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoDelete);
+            //Parameters.AddWithValue("@TblName", dmListInfor.TblName);
+            //ExecuteNoneQuery();
+
+            ExecuteCommand(Declare.StoreProcedureNamespace.spKhaiBaoDelete, dmListInfor.TblName);
         }
         internal bool Exist(DMListInfor dmListInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhaiBaoExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@TblName", dmListInfor.TblName);
-            ExecuteNoneQuery();
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            //CreateCommand(Declare.StoreProcedureNamespace.spKhaiBaoExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@TblName", dmListInfor.TblName);
+            //ExecuteNoneQuery();
+
+            //object result = ExecuteScalar(Declare.StoreProcedureNamespace.spKhaiBaoExist, 0, dmListInfor.TblName);
+            //return Convert.ToInt32(result) == 1;
+
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spKhaiBaoExist, dmListInfor.TblName) > 0;
         }
         internal List<DMListInfor> Search(DMListInfor dmListInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spKhaiBaoSearch);
-            Parameters.AddWithValue("@TblName", dmListInfor.TblName);
-            Parameters.AddWithValue("@Name", dmListInfor.Name);
-            return FillToList<DMListInfor>();
+            return GetListCommand<DMListInfor>(Declare.StoreProcedureNamespace.spKhaiBaoSearch, 
+                dmListInfor.TblName, 
+                dmListInfor.Name);
+            
+            //CreateCommand(Declare.StoreProcedureNamespace.spKhaiBaoSearch, dmListInfor.TblName, dmListInfor.Name);
+            //return FillToList<DMListInfor>();
         }
 
         internal bool IsSync(string tableName)
@@ -81,9 +93,10 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         public DMListInfor GetDoiTuongByIdInfo(string tblName)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spKhaiBaoGetById);
-            Parameters.AddWithValue("@TblName", tblName);
-            return FillToObject<DMListInfor>();
+            return GetObjectCommand<DMListInfor>(Declare.StoreProcedureNamespace.spKhaiBaoGetById, tblName);
+
+            //CreateCommand(Declare.StoreProcedureNamespace.spKhaiBaoGetById, tblName);
+            //return FillToObject<DMListInfor>();
         }
     }
 }

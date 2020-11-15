@@ -78,52 +78,72 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal void Update(DMLoaiSanPhamInfo dmChucNangInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamUpdate);
-            SetParams(dmChucNangInfor);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamUpdate,
+                ParseToParams<DMLoaiSanPhamInfo>(dmChucNangInfor));
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamUpdate);
+            //SetParams(dmChucNangInfor);
+            //ExecuteNoneQuery();
         }
 
         internal int Insert(DMLoaiSanPhamInfo dmChucNangInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamInsert);
-            SetParams(dmChucNangInfor);
-            Parameters["@IdChucNang"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spLoaiSanPhamInsert,
+                ParseToParams<DMLoaiSanPhamInfo>(dmChucNangInfor));
 
-            return Convert.ToInt32(Parameters["@IdChucNang"].Value.ToString());
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamInsert);
+            //SetParams(dmChucNangInfor);
+            //Parameters["@IdChucNang"].Direction = ParameterDirection.Output;
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@IdChucNang"].Value.ToString());
         }
 
         internal void Delete(DMLoaiSanPhamInfo dmChucNangInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamDelete);
-            Parameters.AddWithValue("@IdChucNang", dmChucNangInfor.IdLoaiSP);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamDelete,
+                dmChucNangInfor.IdLoaiSP);
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamDelete);
+            //Parameters.AddWithValue("@IdChucNang", dmChucNangInfor.IdLoaiSP);
+            //ExecuteNoneQuery();
         }
 
         internal bool Exist(DMLoaiSanPhamInfo dmChucNangInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdChucNang", dmChucNangInfor.IdLoaiSP);
-            Parameters.AddWithValue("@TenChucNang", dmChucNangInfor.MaLoaiSP);
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spLoaiSanPhamExist,
+                dmChucNangInfor.IdLoaiSP,
+                dmChucNangInfor.MaLoaiSP) > 0;
 
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@IdChucNang", dmChucNangInfor.IdLoaiSP);
+            //Parameters.AddWithValue("@TenChucNang", dmChucNangInfor.MaLoaiSP);
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@Count"].Value) == 1;
         }
 
         internal List<DMLoaiSanPhamInfo> Search(DMLoaiSanPhamInfo dmChucNangInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamSearch);
-            Parameters.AddWithValue("@MaChucNang", dmChucNangInfor.TenLoaiSP);
-            Parameters.AddWithValue("@TenChucNang", dmChucNangInfor.MaLoaiSP);
-            return FillToList<DMLoaiSanPhamInfo>();
+            return GetListCommand<DMLoaiSanPhamInfo>(Declare.StoreProcedureNamespace.spLoaiSanPhamSearch,
+                dmChucNangInfor.TenLoaiSP,
+                dmChucNangInfor.MaLoaiSP);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamSearch);
+            //Parameters.AddWithValue("@MaChucNang", dmChucNangInfor.TenLoaiSP);
+            //Parameters.AddWithValue("@TenChucNang", dmChucNangInfor.MaLoaiSP);
+            //return FillToList<DMLoaiSanPhamInfo>();
         }
 
         public DMLoaiSanPhamInfo GetLoaiSPByIdInfo(int idChucNang)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamGetById);
-            Parameters.AddWithValue("@IdChucNang", idChucNang);
-            return FillToObject<DMLoaiSanPhamInfo>();
+            return GetObjectCommand<DMLoaiSanPhamInfo>(Declare.StoreProcedureNamespace.spLoaiSanPhamGetById,
+                idChucNang);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spLoaiSanPhamGetById);
+            //Parameters.AddWithValue("@IdChucNang", idChucNang);
+            //return FillToObject<DMLoaiSanPhamInfo>();
         }
         public DMLoaiSanPhamInfo GetLoaiSanPhamByText(string loaisp)
         {

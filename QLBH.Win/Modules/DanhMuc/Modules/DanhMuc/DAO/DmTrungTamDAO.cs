@@ -73,9 +73,7 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal bool Exist(DMTrungTamInfor dmTrungTamInfor)
         {
-            ExecuteCommand(Declare.StoreProcedureNamespace.spTrungTamExist, dmTrungTamInfor.IdTrungTam, dmTrungTamInfor.MaTrungTam);
-
-            return Convert.ToInt32(Parameters["p_Count"].Value) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spTrungTamExist, dmTrungTamInfor.IdTrungTam, dmTrungTamInfor.MaTrungTam) > 0;
         }
 
         internal List<DMTrungTamInfor> Search(DMTrungTamInfor dmTrungTamInfor)

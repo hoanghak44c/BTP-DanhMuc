@@ -49,50 +49,35 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal void Update(DMPhongBanInfor dmPhongBanInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spPhongBanUpdate);
-            SetParams(dmPhongBanInfor);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spPhongBanUpdate, ParseToParams<DMPhongBanInfor>(dmPhongBanInfor));
         }
 
         internal int Insert(DMPhongBanInfor dmPhongBanInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spPhongBanInsert);
-            SetParams(dmPhongBanInfor);
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spPhongBanInsert, ParseToParams<DMPhongBanInfor>(dmPhongBanInfor));
+            //SetParams(dmPhongBanInfor);
             //Parameters["@IdPhongBan"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            //ExecuteNoneQuery();
 
-            return Convert.ToInt32(Parameters["@IdPhongBan"].Value.ToString());
+            //return Convert.ToInt32(Parameters["@IdPhongBan"].Value.ToString());
         }
 
         internal void Delete(DMPhongBanInfor dmPhongBanInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spPhongBanDelete);
-            Parameters.AddWithValue("@IdPhongBan", dmPhongBanInfor.IdPhongBan);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spPhongBanDelete, dmPhongBanInfor.IdPhongBan);
         }
 
         internal bool Exist(DMPhongBanInfor dmPhongBanInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spPhongBanExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdPhongBan", dmPhongBanInfor.IdPhongBan);
-            Parameters.AddWithValue("@MaPhongBan", dmPhongBanInfor.MaPhongBan);
-            ExecuteNoneQuery();
-
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spPhongBanExist, dmPhongBanInfor.IdPhongBan, dmPhongBanInfor.MaPhongBan) > 0;
         }
         internal List<DMPhongBanInfor> Search(DMPhongBanInfor dmMaLoiInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spPhongBanSearch);
-            Parameters.AddWithValue("@TenPhongBan", dmMaLoiInfor.TenPhongBan);
-            Parameters.AddWithValue("@MaPhongBan", dmMaLoiInfor.MaPhongBan);
-            return FillToList<DMPhongBanInfor>();
+            return GetListCommand<DMPhongBanInfor>(Declare.StoreProcedureNamespace.spPhongBanSearch, dmMaLoiInfor.TenPhongBan, dmMaLoiInfor.MaPhongBan);
         }
         public DMPhongBanInfor GetPhongBanByIdInfo(int id)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spPhongBanGetById);
-            Parameters.AddWithValue("@IdLoaiItem", id);
-            return FillToObject<DMPhongBanInfor>();
+            return GetObjectCommand<DMPhongBanInfor>(Declare.StoreProcedureNamespace.spPhongBanGetById, id);
         }
         public  List<DMPhongBanInfor>GetAllPhongBan()
         {

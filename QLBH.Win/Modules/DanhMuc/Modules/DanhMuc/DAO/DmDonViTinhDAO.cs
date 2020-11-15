@@ -44,62 +44,85 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal void Update(DMDonViTinhInfor dmDonViTinhInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhUpdate);
-            SetParams(dmDonViTinhInfor);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spDonViTinhUpdate,
+                ParseToParams<DMDonViTinhInfor>(dmDonViTinhInfor));
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhUpdate);
+            //SetParams(dmDonViTinhInfor);
+            //ExecuteNoneQuery();
         }
 
         internal int Insert(DMDonViTinhInfor dmDonViTinhInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhInsert);
-            SetParams(dmDonViTinhInfor);
-            Parameters["@IdDonViTinh"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDonViTinhInsert,
+                ParseToParams<DMDonViTinhInfor>(dmDonViTinhInfor));
 
-            return Convert.ToInt32(Parameters["@IdDonViTinh"].Value.ToString());
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhInsert);
+            //SetParams(dmDonViTinhInfor);
+            //Parameters["@IdDonViTinh"].Direction = ParameterDirection.Output;
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@IdDonViTinh"].Value.ToString());
         }
 
         internal void Delete(DMDonViTinhInfor dmDonViTinhInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhDelete);
-            Parameters.AddWithValue("@IdDonViTinh", dmDonViTinhInfor.IdDonViTinh);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spDonViTinhDelete,
+                dmDonViTinhInfor.IdDonViTinh);
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhDelete);
+            //Parameters.AddWithValue("@IdDonViTinh", dmDonViTinhInfor.IdDonViTinh);
+            //ExecuteNoneQuery();
         }
 
         internal bool Exist(DMDonViTinhInfor dmDonViTinhInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdDonViTinh", dmDonViTinhInfor.IdDonViTinh);
-            Parameters.AddWithValue("@KyHieu", dmDonViTinhInfor.KyHieu);
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDonViTinhExist,
+                dmDonViTinhInfor.IdDonViTinh, dmDonViTinhInfor.KyHieu) > 0;
 
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDonViTinhExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@IdDonViTinh", dmDonViTinhInfor.IdDonViTinh);
+            //Parameters.AddWithValue("@KyHieu", dmDonViTinhInfor.KyHieu);
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@Count"].Value) == 1;
         }
 
         internal List<DMDonViTinhInfor> Search(DMDonViTinhInfor dmDonViTinhInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spDonViTinhSearch);
-            Parameters.AddWithValue("@TenDonViTinh", dmDonViTinhInfor.TenDonViTinh);
-            Parameters.AddWithValue("@KyHieu", dmDonViTinhInfor.KyHieu);
-            return FillToList<DMDonViTinhInfor>();
+            return GetListCommand<DMDonViTinhInfor>(Declare.StoreProcedureNamespace.spDonViTinhSearch,
+                dmDonViTinhInfor.TenDonViTinh,
+                dmDonViTinhInfor.KyHieu);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spDonViTinhSearch);
+            //Parameters.AddWithValue("@TenDonViTinh", dmDonViTinhInfor.TenDonViTinh);
+            //Parameters.AddWithValue("@KyHieu", dmDonViTinhInfor.KyHieu);
+            //return FillToList<DMDonViTinhInfor>();
         }
         public DMDonViTinhInfor GetDonViTinhByIdInfo(int idDonViTinh)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spDonViTinhGetbyId);
-            Parameters.AddWithValue("@IdDonViTinh", idDonViTinh);
-            return FillToObject<DMDonViTinhInfor>();
+            return GetObjectCommand<DMDonViTinhInfor>(Declare.StoreProcedureNamespace.spDonViTinhGetbyId,
+                idDonViTinh);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spDonViTinhGetbyId);
+            //Parameters.AddWithValue("@IdDonViTinh", idDonViTinh);
+            //return FillToObject<DMDonViTinhInfor>();
         }
 
         public bool IsUsed(int idDonViTinh)
         {
-            ExecuteCommand(Declare.StoreProcedureNamespace.spDonViTinhIsUsed, idDonViTinh);
-            return Convert.ToInt32(Parameters["p_Count"].Value) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDonViTinhIsUsed,
+                idDonViTinh) > 0;
+
+            //ExecuteCommand(Declare.StoreProcedureNamespace.spDonViTinhIsUsed, idDonViTinh);
+            //return Convert.ToInt32(Parameters["p_Count"].Value) == 1;
         }
         internal  List<DMDonViTinhInfor> TimKiem(string madonvitinh,string tendonvitinh)
         {
-            return GetListCommand<DMDonViTinhInfor>(Declare.StoreProcedureNamespace.spDonViTinhSearch, madonvitinh,
-                                                    tendonvitinh);
+            return GetListCommand<DMDonViTinhInfor>(Declare.StoreProcedureNamespace.spDonViTinhSearch, 
+                madonvitinh,
+                tendonvitinh);
         }
         
     }

@@ -140,8 +140,8 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         }
         internal int Insert(DMSanPhamInfo dmSanPhamInfor)
         {
-            ExecuteCommand(Declare.StoreProcedureNamespace.spSanPhamInsert,
-                dmSanPhamInfor.IdSanPham,
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spSanPhamInsert,
+                //dmSanPhamInfor.IdSanPham,
                 dmSanPhamInfor.IdCha,
                 dmSanPhamInfor.MaVach,
                 dmSanPhamInfor.MaSanPham,
@@ -156,7 +156,7 @@ namespace QLBanHang.Modules.DanhMuc.DAO
                 dmSanPhamInfor.BaoHanhHang,
                 dmSanPhamInfor.BaoHanhKhach,
                 dmSanPhamInfor.TyLeVAT);
-            return Convert.ToInt32(Parameters["p_IdSanPham"].Value.ToString());
+            //return Convert.ToInt32(Parameters["p_IdSanPham"].Value.ToString());
         }
         internal void Delete(DMSanPhamInfo dmSanPhamInfor)
         {
@@ -173,54 +173,64 @@ namespace QLBanHang.Modules.DanhMuc.DAO
             //Parameters.AddWithValue("@MaSanPham", dmSanPhamInfor.MaSanPham);
             //ExecuteNoneQuery();
             //return Convert.ToInt32(Parameters["@Count"].Value) == 1;
-            ExecuteCommand(Declare.StoreProcedureNamespace.spSanPhamExist, dmSanPhamInfor.IdSanPham, dmSanPhamInfor.MaSanPham);
-            return Convert.ToInt32(Parameters["p_Count"].Value) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spSanPhamExist, 
+                dmSanPhamInfor.IdSanPham, 
+                dmSanPhamInfor.MaSanPham) > 0;
         }
         internal List<DMSanPhamInfo> Search(DMSanPhamInfo dmSanPhamInfor)
         {
             return GetListCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamSearch,
-                                                   dmSanPhamInfor.MaSanPham, dmSanPhamInfor.TenSanPham);
+                dmSanPhamInfor.MaSanPham, 
+                dmSanPhamInfor.TenSanPham);
         }
         public DMSanPhamInfo GetSanPhamInfoById(int idSanPham)
         {
             //CreateGetListCommand(Declare.StoreProcedureNamespace.spSanPhamGetById);
             //Parameters.AddWithValue("@IdSanPham", idSanPham);
             //return FillToObject<DMSanPhamInfo>();
-            return GetObjectCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetById, idSanPham);
+            return GetObjectCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetById, 
+                idSanPham);
 
         }
 
         public DMSanPhamInfo GetSanPhamByMa(string maSanPham)
         {
-            return GetObjectCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetByMaSP, maSanPham);
+            return GetObjectCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetByMaSP, 
+                maSanPham);
         }
 
         public List<DMSanPhamInfo> GetListSanPhamByLoaiSP(int idLoaiSp)
         {
-            return GetListCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetByLoaiSP, idLoaiSp);
+            return GetListCommand<DMSanPhamInfo>(Declare.StoreProcedureNamespace.spSanPhamGetByLoaiSP, 
+                idLoaiSp);
         }
 
         public List<DMSanPhamBriefInfo> GetListSanPhamBrief(int suDung, int chietKhau)
         {
-            return GetListCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBrief, suDung, chietKhau);
+            return GetListCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBrief, 
+                suDung, chietKhau);
         }
         public List<DMSanPhamBriefInfo> GetListSanPhamBrief(int idNguoiDung, int suDung, int chietKhau)
         {
-            return GetListCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSD,
-                                                      idNguoiDung, suDung, chietKhau);
+            return GetListCommand<DMSanPhamBriefInfo>(
+                Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSD,
+                idNguoiDung, suDung, chietKhau);
         }
         public List<DMSanPhamBriefInfo> GetListSanPhamTonBrief(int idNguoiDung, int suDung, int chietKhau, int idKho, int tonAll)
         {
-            return GetListCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSDTK,
-                                                      idNguoiDung, suDung, chietKhau, idKho, tonAll);
+            return GetListCommand<DMSanPhamBriefInfo>(
+                Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSDTK,
+                idNguoiDung, suDung, chietKhau, idKho, tonAll);
         }
         public DMSanPhamBriefInfo GetSanPhamBriefByMa(string maSanPham)
         {
-            return GetObjectCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBriefByMa, maSanPham);
+            return GetObjectCommand<DMSanPhamBriefInfo>(
+                Declare.StoreProcedureNamespace.spSanPhamSelectBriefByMa, maSanPham);
         }
         public DMSanPhamBriefInfo GetSanPhamBriefByNSDMa(string maSanPham, int idNhomNguoiDung)
         {
-            return GetObjectCommand<DMSanPhamBriefInfo>(Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSDMa, maSanPham, idNhomNguoiDung);
+            return GetObjectCommand<DMSanPhamBriefInfo>(
+                Declare.StoreProcedureNamespace.spSanPhamSelectBriefByNSDMa, maSanPham, idNhomNguoiDung);
         }
         //public DMSanPhamBriefInfo GetSanPhamBriefByMa(string maSanPham)
         //{ 

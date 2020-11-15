@@ -85,10 +85,7 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal void Update(DMKhoInfo dmKhoInfor)
         {
-            //CreateCommonCommand(Declare.StoreProcedureNamespace.spKhoUpdate);
-            //SetParams(dmKhoInfor);
-            //ExecuteNoneQuery();
-            ExecuteCommand(Declare.StoreProcedureNamespace.spKhoUpdate, dmKhoInfor.IdTrungTam, dmKhoInfor.MaKho,
+            ExecuteCommand(Declare.StoreProcedureNamespace.spKhoUpdate, dmKhoInfor.IdKho, dmKhoInfor.IdTrungTam, dmKhoInfor.MaKho,
                            dmKhoInfor.TenKho, dmKhoInfor.DiaChi, dmKhoInfor.DienThoai, dmKhoInfor.Fax, dmKhoInfor.Email,
                            dmKhoInfor.GhiChu, dmKhoInfor.SuDung, dmKhoInfor.NgayKhoaSo, dmKhoInfor.NgayDuDau, dmKhoInfor.InHoaDon, dmKhoInfor.InPhieuXuat, dmKhoInfor.LanDongBoTruoc
                            , dmKhoInfor.MaVung, dmKhoInfor.IdKhachMacDinh, dmKhoInfor.KhoaNhapDauKy, dmKhoInfor.OtherTrungTam,
@@ -98,60 +95,38 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal int Insert(DMKhoInfo dmKhoInfor)
         {
-            //CreateCommonCommand(Declare.StoreProcedureNamespace.spKhoInsert);
-            //SetParams(dmKhoInfor);
-            //Parameters["@IdKho"].Direction = ParameterDirection.Output;
-            //ExecuteNoneQuery();
-            //return Convert.ToInt32(Parameters["@IdKho"].Value.ToString());
-            ExecuteCommand(Declare.StoreProcedureNamespace.spKhoInsert, dmKhoInfor.IdTrungTam, dmKhoInfor.MaKho,
-                           dmKhoInfor.TenKho, dmKhoInfor.DiaChi, dmKhoInfor.DienThoai, dmKhoInfor.Fax, dmKhoInfor.Email,
-                           dmKhoInfor.GhiChu, dmKhoInfor.SuDung,dmKhoInfor.NgayKhoaSo,dmKhoInfor.NgayDuDau,dmKhoInfor.InHoaDon,dmKhoInfor.InPhieuXuat,dmKhoInfor.LanDongBoTruoc
-                           , dmKhoInfor.MaVung,dmKhoInfor.IdKhachMacDinh,dmKhoInfor.KhoaNhapDauKy,dmKhoInfor.OtherTrungTam,
-                           dmKhoInfor.MaKhoOracle, dmKhoInfor.ViTri, dmKhoInfor.Duong, dmKhoInfor.Tinh,dmKhoInfor.QuocGia, dmKhoInfor.Type);
-            return Common.IntValue(Parameters["p_IdKho"].Value.ToString());
-
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spKhoInsert, dmKhoInfor.IdTrungTam, 
+                dmKhoInfor.MaKho, dmKhoInfor.TenKho, dmKhoInfor.DiaChi, dmKhoInfor.DienThoai, 
+                dmKhoInfor.Fax, dmKhoInfor.Email, dmKhoInfor.GhiChu, dmKhoInfor.SuDung,
+                dmKhoInfor.NgayKhoaSo,dmKhoInfor.NgayDuDau,dmKhoInfor.InHoaDon, dmKhoInfor.InPhieuXuat,
+                dmKhoInfor.LanDongBoTruoc, dmKhoInfor.MaVung, dmKhoInfor.IdKhachMacDinh,
+                dmKhoInfor.KhoaNhapDauKy,dmKhoInfor.OtherTrungTam, dmKhoInfor.MaKhoOracle, 
+                dmKhoInfor.ViTri, dmKhoInfor.Duong, dmKhoInfor.Tinh,dmKhoInfor.QuocGia, dmKhoInfor.Type);
         }
 
         internal void Delete(DMKhoInfo dmKhoInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhoDelete);
-            Parameters.AddWithValue("@IdKho", dmKhoInfor.IdKho);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spKhoDelete, dmKhoInfor.IdKho);
         }
 
         internal bool Exist(DMKhoInfo dmKhoInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spKhoExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdKho", dmKhoInfor.IdKho);
-            Parameters.AddWithValue("@MaKho", dmKhoInfor.MaKho);
-            ExecuteNoneQuery();
-
-            return Convert.ToInt32(Parameters["@Count"].Value.ToString()) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spKhoExist, dmKhoInfor.IdKho, dmKhoInfor.MaKho) > 0;
         }
 
         internal List<DMKhoGridLoadInfo> Search(DMKhoGridLoadInfo dmKhoInfor)
         {
             return GetListCommand<DMKhoGridLoadInfo>(Declare.StoreProcedureNamespace.spKhoSearch, dmKhoInfor.MaKho, dmKhoInfor.TenKho);
-            //CreateGetListCommand(Declare.StoreProcedureNamespace.spKhoSearch);
-            //Parameters.AddWithValue("@MaKho", dmKhoInfor.MaKho);
-            //Parameters.AddWithValue("@TenKho", dmKhoInfor.TenKho);
-            //return FillToList<DMKhoGridLoadInfo>();
         }
 
         public DMKhoInfo GetKhoByIdInfo(int idKho)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spKhoGetById);
-            Parameters.AddWithValue("@IdKho", idKho);
-            return FillToObject<DMKhoInfo>();
-
+            return GetObjectCommand<DMKhoInfo>(Declare.StoreProcedureNamespace.spKhoGetById, idKho);
         }
 
         internal List<DMKhoCBOLoadInfo> GetListKhoCBOInfo(int idTrungTam)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spKhoSelectPairByTrungTam);
-            Parameters.AddWithValue("@IdTrungTam", idTrungTam);
-            return FillToList<DMKhoCBOLoadInfo>();
+            return GetListCommand<DMKhoCBOLoadInfo>(Declare.StoreProcedureNamespace.spKhoSelectPairByTrungTam, idTrungTam);
         }
 
         public List<DMKhoInfo> GetListKhoInfo(int idTrungTam)

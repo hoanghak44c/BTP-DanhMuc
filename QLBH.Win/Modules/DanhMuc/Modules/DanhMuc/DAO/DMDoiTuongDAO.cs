@@ -151,9 +151,7 @@ namespace QLBanHang.Modules.DanhMuc.DAO
                 }
             }
                 
-            ExecuteCommand(Declare.StoreProcedureNamespace.spDoiTuongInsert, ParseToParams(dmDoiTuongInfor));
-            
-            return Convert.ToInt32(Parameters["p_IdDoiTuong"].Value.ToString());
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDoiTuongInsert, ParseToParams(dmDoiTuongInfor));
         }
         internal void Delete(DMDoiTuongInfo dmDoiTuongInfor)
         {
@@ -161,13 +159,15 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         }
         internal bool Exist(DMDoiTuongInfo dmDoiTuongInfor)
         {
-            ExecuteCommand(Declare.StoreProcedureNamespace.spDoiTuongExist, dmDoiTuongInfor.IdDoiTuong, dmDoiTuongInfor.MaDoiTuong);
-            return Convert.ToInt32(Parameters["p_Count"].Value.ToString()) == 1;
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDoiTuongExist, 
+                dmDoiTuongInfor.IdDoiTuong, 
+                dmDoiTuongInfor.MaDoiTuong) > 0;
         }
         internal bool ExistLe(DMDoiTuongInfo dmDoiTuongInfo)
         {
-           ExecuteCommand(Declare.StoreProcedureNamespace.spDoiTuongLeExist,dmDoiTuongInfo.IdDoiTuong,dmDoiTuongInfo.MaRieng);
-           return Convert.ToInt32(Parameters["p_Count"].Value.ToString()) == 1;
+           return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDoiTuongLeExist,
+               dmDoiTuongInfo.IdDoiTuong,
+               dmDoiTuongInfo.MaRieng) > 0;
         }
         internal List<DMDoiTuongInfo> Search(DMDoiTuongInfo dmDoiTuongInfor)
         {

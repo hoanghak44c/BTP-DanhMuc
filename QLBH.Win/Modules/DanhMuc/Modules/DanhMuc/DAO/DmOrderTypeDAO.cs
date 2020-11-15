@@ -57,7 +57,7 @@ namespace QLBanHang.Modules.DanhMuc.DAO
 
         internal int Insert(DMOrderTypeInfor dmOrderTypeInfor)
         {
-            ExecuteCommand(Declare.StoreProcedureNamespace.spOrderTypeInsert,
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spOrderTypeInsert,
                                 dmOrderTypeInfor.IdOrderType,
                                 dmOrderTypeInfor.OrderType,
                                 dmOrderTypeInfor.Name,
@@ -68,25 +68,32 @@ namespace QLBanHang.Modules.DanhMuc.DAO
                                 dmOrderTypeInfor.LineCk,
                                 dmOrderTypeInfor.NganhHang);
             //return Convert.ToInt32(Parameters["@IdOrderType"].Value.ToString());
-            return Common.IntValue(Parameters["p_IdOrderType"].Value.ToString());
+            //return Common.IntValue(Parameters["p_IdOrderType"].Value.ToString());
         }
 
         internal void Delete(DMOrderTypeInfor dmOrderTypeInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spOrderTypeDelete);
-            Parameters.AddWithValue("@IdOrderType", dmOrderTypeInfor.IdOrderType);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spOrderTypeDelete,
+                dmOrderTypeInfor.IdOrderType);
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spOrderTypeDelete);
+            //Parameters.AddWithValue("@IdOrderType", dmOrderTypeInfor.IdOrderType);
+            //ExecuteNoneQuery();
         }
 
         internal bool Exist(DMOrderTypeInfor dmOrderTypeInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spOrderTypeExist);
-            Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
-            Parameters.AddWithValue("@IdOrderType", dmOrderTypeInfor.IdOrderType);
-            Parameters.AddWithValue("@Code", dmOrderTypeInfor.OrderType);
-            ExecuteNoneQuery();
+            return GetObjectCommand<int>(Declare.StoreProcedureNamespace.spOrderTypeExist,
+                dmOrderTypeInfor.IdOrderType,
+                dmOrderTypeInfor.OrderType) > 0;
 
-            return Convert.ToInt32(Parameters["@Count"].Value) == 1;
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spOrderTypeExist);
+            //Parameters.AddWithValue("@Count", 0).Direction = ParameterDirection.Output;
+            //Parameters.AddWithValue("@IdOrderType", dmOrderTypeInfor.IdOrderType);
+            //Parameters.AddWithValue("@Code", dmOrderTypeInfor.OrderType);
+            //ExecuteNoneQuery();
+
+            //return Convert.ToInt32(Parameters["@Count"].Value) == 1;
         }
         //internal List<DMOrderTypeInfor> Search(string MaOrderType ,string TenOrderType)
         //{
@@ -95,16 +102,23 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         //}
         internal List<DMOrderTypeInfor> Search(DMOrderTypeInfor dmOrderTypeInfor)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spOrderTypeSearch);
-            Parameters.AddWithValue("@Name", dmOrderTypeInfor.Name);
-            Parameters.AddWithValue("@Code", dmOrderTypeInfor.OrderType);
-            return FillToList<DMOrderTypeInfor>();
+            return GetListCommand<DMOrderTypeInfor>(Declare.StoreProcedureNamespace.spOrderTypeSearch,
+                dmOrderTypeInfor.Name,
+                dmOrderTypeInfor.OrderType);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spOrderTypeSearch);
+            //Parameters.AddWithValue("@Name", dmOrderTypeInfor.Name);
+            //Parameters.AddWithValue("@Code", dmOrderTypeInfor.OrderType);
+            //return FillToList<DMOrderTypeInfor>();
         }
         public DMOrderTypeInfor GetOrderTypeIdInfo(int idOrderType)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spOrderTypeGetbyId);
-            Parameters.AddWithValue("@IdOrderType", idOrderType);
-            return FillToObject<DMOrderTypeInfor>();
+            return GetObjectCommand<DMOrderTypeInfor>(Declare.StoreProcedureNamespace.spOrderTypeGetbyId,
+                idOrderType);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spOrderTypeGetbyId);
+            //Parameters.AddWithValue("@IdOrderType", idOrderType);
+            //return FillToObject<DMOrderTypeInfor>();
         }
     }
 }

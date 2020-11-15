@@ -26,24 +26,33 @@ namespace QLBanHang.Modules.DanhMuc.DAO
         }
         internal void Insert(DoiTuong_DiaChiInfo dmTrungTamInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiInsert);
-            SetParams(dmTrungTamInfor);
-            //Parameters["@IdDoiTuong"].Direction = ParameterDirection.Output;
-            ExecuteNoneQuery();
+            GetObjectCommand<int>(Declare.StoreProcedureNamespace.spDoiTuongDiaChiInsert,
+                ParseToParams<DoiTuong_DiaChiInfo>(dmTrungTamInfor));
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiInsert);
+            //SetParams(dmTrungTamInfor);
+            ////Parameters["@IdDoiTuong"].Direction = ParameterDirection.Output;
+            //ExecuteNoneQuery();
 
             //return Convert.ToInt32(Parameters["@IdDoiTuong"].Value.ToString());
         }
         internal void Delete(DoiTuong_DiaChiInfo dmTrungTamInfor)
         {
-            CreateCommonCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiDelete);
-            Parameters.AddWithValue("@IdDoiTuong", dmTrungTamInfor.IdDoiTuong);
-            ExecuteNoneQuery();
+            ExecuteCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiDelete,
+                dmTrungTamInfor.IdDoiTuong);
+
+            //CreateCommonCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiDelete);
+            //Parameters.AddWithValue("@IdDoiTuong", dmTrungTamInfor.IdDoiTuong);
+            //ExecuteNoneQuery();
         }
         public List<DoiTuong_DiaChiInfo> GetDoiTuongDiaChiByIdInfo(int idDoiTuong)
         {
-            CreateGetListCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiSelectByidDoiTuong);
-            Parameters.AddWithValue("@IdDoiTuong", idDoiTuong);
-            return FillToList<DoiTuong_DiaChiInfo>();
+            return GetListCommand<DoiTuong_DiaChiInfo>(Declare.StoreProcedureNamespace.spDoiTuongDiaChiSelectByidDoiTuong,
+                idDoiTuong);
+
+            //CreateGetListCommand(Declare.StoreProcedureNamespace.spDoiTuongDiaChiSelectByidDoiTuong);
+            //Parameters.AddWithValue("@IdDoiTuong", idDoiTuong);
+            //return FillToList<DoiTuong_DiaChiInfo>();
         }
     }
 }
